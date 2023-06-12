@@ -3,13 +3,13 @@ import useGenres from '../hooks/useGenres';
 import getCroppedImageUrl from '../services/image-url';
 
 const GenreList = () => {
-    const { genres, isLoading } = useGenres();
+    const { data, isLoading } = useGenres();
 
     if (isLoading) return <Spinner />;
 
     return (
         <List>
-            {genres.map((genre) => (
+            {data.map((genre) => (
                 <ListItem key={genre.id} marginY={4}>
                     <HStack>
                         <Image
