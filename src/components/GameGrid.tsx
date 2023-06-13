@@ -16,9 +16,9 @@ function GameGrid({ gameQuery }: Props) {
         <>
             {error && <p>Couldn't fetch game data.</p>}
             <SimpleGrid
-                columns={{ sm: 1, md: 2, lg: 3, xl: 5 }}
+                columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
                 padding={5}
-                spacing={5}
+                spacing={6}
             >
                 {isLoading &&
                     skeletons.map((skeleton) => (
