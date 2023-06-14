@@ -14,7 +14,7 @@ function GameGrid({ gameQuery }: Props) {
 
     return (
         <>
-            {error && <p>Couldn't fetch game data.</p>}
+            {error && <p>{error.message}</p>}
             <SimpleGrid
                 columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
                 padding={5}
@@ -25,7 +25,7 @@ function GameGrid({ gameQuery }: Props) {
                         <GameCardSkeleton key={skeleton} />
                     ))}
 
-                {data.map((game) => (
+                {data?.results.map((game) => (
                     <GameCard key={game.id} game={game} />
                 ))}
             </SimpleGrid>
