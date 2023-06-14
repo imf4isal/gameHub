@@ -12,14 +12,8 @@ interface Props {
 }
 
 function GameGrid({ gameQuery }: Props) {
-    const {
-        data,
-        error,
-        isLoading,
-        isFetchingNextPage,
-        fetchNextPage,
-        hasNextPage,
-    } = useGames(gameQuery);
+    const { data, error, isLoading, fetchNextPage, hasNextPage } =
+        useGames(gameQuery);
 
     const fetchedGameCount =
         data?.pages.reduce((total, page) => total + page.results.length, 0) ||
@@ -51,11 +45,6 @@ function GameGrid({ gameQuery }: Props) {
                     ))}
                 </SimpleGrid>
             </InfiniteScroll>
-            {/* {hasNextPage && (
-                <Button my={5} onClick={() => fetchNextPage()}>
-                    {isFetchingNextPage ? 'Loading...' : 'Load More'}
-                </Button>
-            )} */}
         </Box>
     );
 }
